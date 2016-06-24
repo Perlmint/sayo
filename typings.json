@@ -1,0 +1,26 @@
+{
+  "version": false,
+  "globalDependencies": {
+    "bluebird": "registry:dt/bluebird#2.0.0+20160319051630",
+    "express": "registry:dt/express#4.0.0+20160317120654",
+    "express-serve-static-core": "registry:dt/express-serve-static-core#0.0.0+20160322035842",
+    "google-apps-script/google-apps-script.base": "registry:dt/google-apps-script/google-apps-script.base#0.0.0+20160316171810",
+    "google-apps-script/google-apps-script.calendar": "registry:dt/google-apps-script/google-apps-script.calendar#0.0.0+20160316171810",
+    "google-apps-script/google-apps-script.language": "registry:dt/google-apps-script/google-apps-script.language#0.0.0+20160316171810",
+    "google-apps-script/google-apps-script.types": "registry:dt/google-apps-script/google-apps-script.types#0.0.0+20160316171810",
+    "knex": "registry:dt/knex#0.0.0+20160526133810",
+    "lodash": "registry:dt/lodash#3.10.0+20160330154726",
+    "mime": "registry:dt/mime#0.0.0+20160316155526",
+    "node": "registry:dt/node#6.0.0+20160602155235",
+    "passport": "registry:dt/passport#0.2.0+20160317120654",
+    "passport-google-oauth": "registry:dt/passport-google-oauth#1.0.3+20160316155526",
+    "react": "registry:dt/react#0.14.0+20160423065914",
+    "react-bootstrap": "registry:dt/react-bootstrap#0.0.0+20160526141239",
+    "react-dom": "registry:dt/react-dom#0.14.0+20160412154040",
+    "react-router": "registry:dt/react-router#2.0.0+20160501155536",
+    "react-router/history": "registry:dt/react-router/history#2.0.0+20160316155526",
+    "sequelize": "registry:dt/sequelize#3.4.1+20160423143634",
+    "serve-static": "registry:dt/serve-static#0.0.0+20160501131543",
+    "validator": "registry:dt/validator#4.5.1+20160316155526"
+  }
+}

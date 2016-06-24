@@ -1,0 +1,46 @@
+{
+  "name": "sayo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:ts": "tsc --outDir out/",
+    "build:wp": "webpack",
+    "start": "tsc --watch --outDir out & webpack --watch & node node_modules/nodemon/bin/nodemon.js out/server.js",
+    "clean": "rm -rf out"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Perlmint/sayo.git"
+  },
+  "author": "perlmint",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Perlmint/sayo/issues"
+  },
+  "homepage": "https://github.com/Perlmint/sayo#readme",
+  "dependencies": {
+    "errorhandler": "^1.4.3",
+    "express": "^4.13.4",
+    "google-auth-library": "^0.9.8",
+    "googleapis": "^7.1.0",
+    "lodash": "^4.13.1",
+    "passport": "^0.3.2",
+    "passport-google-oauth": "^1.0.0",
+    "react": "^15.1.0",
+    "react-bootstrap": "^0.29.4",
+    "react-dom": "^15.1.0",
+    "react-router": "^2.4.1",
+    "react-tap-event-plugin": "^1.0.0",
+    "sequelize": "^3.23.3",
+    "ts-loader": "^0.8.2"
+  },
+  "devDependencies": {
+    "fs-extra": "^0.30.0",
+    "fs-walk": "0.0.1",
+    "nodemon": "^1.9.2",
+    "requirejs": "^2.2.0",
+    "sqlite3": "^3.1.4",
+    "webpack": "^1.13.1"
+  }
+}
