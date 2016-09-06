@@ -1,32 +1,17 @@
 /// <reference path="../../typings/index.d.ts" />
-
-import fs = require("fs");
-import path = require('path');
 import * as Sequelize from 'sequelize';
+import { init as initUser } from "./gen/user_models";
+import config = require('config');
 
-var sequelize = new Sequelize('sqlite:///db', {
-});
-var db        = {
-    sequelize: null,
-    Sequelize: null
-};
-
-fs.readdirSync(__dirname)
-    .filter((file) => {
-        return (file.indexOf(".") !== 0) && (file !== "db.js" && file !== "db.ts");
-    })
-    .forEach((file) => {
-        //var model = sequelize.import(path.join(__dirname, file));
-        //db[model.name] = model;
-    });
-
-Object.keys(db).forEach(function(modelName) {
-    /*if ("associate" in db[modelName]) {
-        db[modelName].associate(db);
-    }*/
+var sequelize = new Sequelize(config.get<string>("server.db"), {
+    define: {
+        charset: 'utf8mb4',
+        collate: 'utf8mb4_general_ci'
+    }
 });
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+initUser(sequelize);
 
-export default db;
+sequelize.sync();
+
+export { User } from "./gen/user_models";

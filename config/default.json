@@ -1,0 +1,12 @@
+{
+    "server": {
+        "db": "sqlite://db",
+        "port": 3000,
+        "debug": true
+    },
+    "jobs": {
+        "prefix": "YL_jobs_",
+        "redis": "redis://127.0.0.1:6379"
+    },
+    "imageSavePath": "./images"
+}

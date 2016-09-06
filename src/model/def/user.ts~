@@ -1,0 +1,9 @@
+/// <reference path="../../../typings/index.d.ts" />
+import { model } from "typedsequelize";
+
+@model
+export class User {
+	google_id: string;
+	token: string;
+	name: string;
+}

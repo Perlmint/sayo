@@ -38,3 +38,7 @@ script
 out
 
 client_secret.json
+*~
+src/model/gen
+webpack-assets.json
+db

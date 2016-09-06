@@ -5,7 +5,21 @@ import * as passport from 'passport';
 import { OAuth2Strategy as GoogleStrategy } from 'passport-google-oauth';
 import * as _ from 'lodash';
 import { Request, Response, NextFunction } from 'express';
-import db = require('./model/db');
+import { User } from "./model/db";
+import { UserInstance } from "./model/gen/user_models";
+
+export function InitPassportDB() {
+    passport.serializeUser((user: UserInstance, done) => {
+        done(null, user.google_id);
+    });
+
+    // used to deserialize the user
+    passport.deserializeUser((id, done) => {
+        User.findById(id)
+            .then((user) => done(null, user))
+            .catch((error) => done(error, null));;
+    });
+}
 
 export function InitPassportGoogle(secretJsonPath: string, host: string) {
     fs.readFile(secretJsonPath, (err, content) => {
@@ -21,7 +35,7 @@ export function InitPassportGoogle(secretJsonPath: string, host: string) {
             // make the code asynchronous
             // User.findOne won't fire until we have all our data back from Google
             process.nextTick(() => {
-                db.User.findOrCreate({
+                User.findOrCreate({
                     where: { google_id: profile.id },
                     defaults: {
                         google_id: profile.id,

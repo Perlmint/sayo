@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:ts": "tsc --outDir out/",
-    "build:wp": "webpack",
-    "start": "tsc --watch --outDir out & webpack --watch & node node_modules/nodemon/bin/nodemon.js out/server.js",
-    "clean": "rm -rf out"
+    "build:server": "tsc --outDir out",
+    "dev:server": "tsc --outDir out --watch",
+    "build:client": "webpack",
+    "gen:model": "typedsequelize",
+    "start:dev": "nodemon --debug --watch out --watch tsconfig.json --watch package.json --ignore out/assets out/server.js",
+    "dev:client": "webpack-dev-server -d --config ./webpack.dev.config.js --watch --progress",
+    "dev": "concurrently --kill-others \"npm run dev:server\" \"npm run start:dev\" \"npm run dev:client\""
   },
   "repository": {
     "type": "git",
@@ -20,27 +23,44 @@
   },
   "homepage": "https://github.com/Perlmint/sayo#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "bootstrap": "^3.3.7",
+    "config": "^1.21.0",
+    "css-loader": "^0.25.0",
     "errorhandler": "^1.4.3",
     "express": "^4.13.4",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
     "google-auth-library": "^0.9.8",
     "googleapis": "^7.1.0",
     "lodash": "^4.13.1",
     "passport": "^0.3.2",
     "passport-google-oauth": "^1.0.0",
     "react": "^15.1.0",
-    "react-bootstrap": "^0.29.4",
+    "react-bootstrap": "^0.29.5",
     "react-dom": "^15.1.0",
+    "react-redux": "^4.4.5",
     "react-router": "^2.4.1",
+    "react-router-redux": "^4.0.5",
     "react-tap-event-plugin": "^1.0.0",
-    "sequelize": "^3.23.3",
-    "ts-loader": "^0.8.2"
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0",
+    "sequelize": "^3.24.1",
+    "style-loader": "^0.13.1",
+    "ts-loader": "^0.8.2",
+    "typedsequelize": "^0.3.4",
+    "url-loader": "^0.5.7",
+    "webpack-isomorphic-tools": "^2.5.8"
   },
   "devDependencies": {
+    "concurrently": "^2.2.0",
     "fs-extra": "^0.30.0",
     "fs-walk": "0.0.1",
     "nodemon": "^1.9.2",
     "requirejs": "^2.2.0",
     "sqlite3": "^3.1.4",
-    "webpack": "^1.13.1"
+    "typescript": "^1.8.10",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.1"
   }
 }

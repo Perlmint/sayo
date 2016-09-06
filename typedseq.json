@@ -1,0 +1,6 @@
+{
+    "outdir": "src/model/gen",
+    "inputs": [
+        "src/model/def/user.ts"
+    ]
+}

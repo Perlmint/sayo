@@ -2,13 +2,14 @@
 
 import * as React from 'react';
 import { ImportEveryTime } from './et';
+import { ListGroup, ListGroupItem } from "react-bootstrap";
 
 export class ImportIndex extends React.Component<any, any> {
     render() {
-        return <ul>
-            <li>
+        return <ListGroup>
+            <ListGroupItem>
                 <ImportEveryTime />
-            </li>
-        </ul>
+            </ListGroupItem>
+        </ListGroup>
     }
 }

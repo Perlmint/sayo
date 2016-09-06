@@ -2,6 +2,8 @@
   "version": false,
   "globalDependencies": {
     "bluebird": "registry:dt/bluebird#2.0.0+20160319051630",
+    "config": "registry:dt/config#0.0.0+20160317120654",
+    "errorhandler": "registry:dt/errorhandler#0.0.0+20160316155526",
     "express": "registry:dt/express#4.0.0+20160317120654",
     "express-serve-static-core": "registry:dt/express-serve-static-core#0.0.0+20160322035842",
     "google-apps-script/google-apps-script.base": "registry:dt/google-apps-script/google-apps-script.base#0.0.0+20160316171810",
@@ -21,6 +23,13 @@
     "react-router/history": "registry:dt/react-router/history#2.0.0+20160316155526",
     "sequelize": "registry:dt/sequelize#3.4.1+20160423143634",
     "serve-static": "registry:dt/serve-static#0.0.0+20160501131543",
-    "validator": "registry:dt/validator#4.5.1+20160316155526"
+    "validator": "registry:dt/validator#4.5.1+20160316155526",
+    "webpack-isomorphic-tools": "github:Perlmint/private_typings/webpack-isomorphic-tools.d.ts"
+  },
+  "dependencies": {
+    "body-parser": "registry:npm/body-parser#1.15.2+20160815132839",
+    "react-redux": "registry:npm/react-redux#4.4.0+20160614222153",
+    "react-router-redux": "registry:npm/react-router-redux#4.0.0+20160602212457",
+    "redux-thunk": "registry:npm/redux-thunk#2.0.0+20160525185520"
   }
 }
