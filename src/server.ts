@@ -1,23 +1,23 @@
 /// <reference path="../typings/index.d.ts" />
 
-import http = require("http");
-import path = require("path");
-import express = require("express");
+import * as http from "http";
+import * as path from "path";
+import * as express from "express";
 import { match, RouterContext, createMemoryHistory } from "react-router";
 import { syncHistoryWithStore } from "react-router-redux";
 import { renderToString } from "react-dom/server";
-import React = require("react");
+import * as React from "react";
 import { routes } from "./routes";
 import { template } from "./server_template";
 import * as passport from "passport";
 import { InitPassportDB, InitPassportGoogle, AuthRequired } from "./auth";
 import { configureStore } from "./store";
-import config = require("config");
-import _ = require("lodash");
-import URL = require("url");
+import * as config from "config";
+import * as _ from "lodash";
+import * as URL from "url";
 
-import errorhandler = require("errorhandler");
-import bodyParser = require("body-parser");
+import * as errorhandler from "errorhandler";
+import * as bodyParser from "body-parser";
 
 var app = express();
 
@@ -26,7 +26,7 @@ const port = config.get<number>("server.port");
 InitPassportDB();
 InitPassportGoogle("client_secret.json", `127.0.0.1:${port}`);
 
-import wit = require("webpack-isomorphic-tools");
+let wit = require("webpack-isomorphic-tools");
 const witConfig = require(
     path.join(process.cwd(), "webpack-isomorphic-tools-config"));
 const webpackIsomorphicTools = new wit(witConfig).development(debug);

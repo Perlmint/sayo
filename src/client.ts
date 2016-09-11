@@ -1,14 +1,14 @@
 /// <reference path="../typings/index.d.ts" />
 
-import * as React from 'react'
-import * as ReactDOM from 'react-dom';
-import { Router, browserHistory } from 'react-router';
-import { Provider } from 'react-redux';
-import { syncHistoryWithStore } from 'react-router-redux';
-import { routes } from './routes';
-import { configureStore } from './store';
+import * as React from "react"
+import * as ReactDOM from "react-dom";
+import { Router, browserHistory } from "react-router";
+import { Provider } from "react-redux";
+import { syncHistoryWithStore } from "react-router-redux";
+import { routes } from "./routes";
+import { configureStore } from "./store";
 
-const store = configureStore(browserHistory, window['__INITIAL_STATE__']);
+const store = configureStore(browserHistory, window["__INITIAL_STATE__"]);
 const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
@@ -19,4 +19,4 @@ ReactDOM.render(
             routes:routes
         })
     }),
-    document.getElementById('app'));
+    document.getElementById("app"));
