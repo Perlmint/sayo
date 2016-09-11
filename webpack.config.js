@@ -1,5 +1,6 @@
 var webpack_isomorphic_tools_plugin =
     new (require('webpack-isomorphic-tools/plugin'))(require('./webpack-isomorphic-tools-config'))
+var webpack = require("webpack");
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
@@ -47,6 +48,7 @@ module.exports = {
   plugins:
   [
       webpack_isomorphic_tools_plugin,
-      new ExtractTextPlugin('styles.css')
+      new ExtractTextPlugin('styles.css'),
+      new webpack.NormalModuleReplacementPlugin(/\.\/auth_server/, "./auth_client.ts")
   ]
 }

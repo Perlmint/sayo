@@ -10,11 +10,12 @@ import * as React from "react";
 import { routes } from "./routes";
 import { template } from "./server_template";
 import * as passport from "passport";
-import { InitPassportDB, InitPassportGoogle, AuthRequired } from "./auth";
+import { InitPassportDB, InitPassportGoogle, AuthRequired, authApp } from "./auth_server";
 import { configureStore } from "./store";
 import * as config from "config";
 import * as _ from "lodash";
 import * as URL from "url";
+import { SetAuthorized, UnsetAuthorized } from "./reducer/auth";
 
 import * as errorhandler from "errorhandler";
 import * as bodyParser from "body-parser";
@@ -31,10 +32,15 @@ const witConfig = require(
     path.join(process.cwd(), "webpack-isomorphic-tools-config"));
 const webpackIsomorphicTools = new wit(witConfig).development(debug);
 
+import * as cookieParser from "cookie-parser";
+import * as expressSession from "express-session";
+
 webpackIsomorphicTools.server(process.cwd(), () => {
     app.use(bodyParser.urlencoded({extended: true}));
     app.use(bodyParser.json());
+    app.use(expressSession({ secret: config.get<string>("sessionSecret"), resave: false, saveUninitialized: false }));
     app.use(passport.initialize());
+    app.use(passport.session());
 
     app.set("port", port);
 
@@ -72,9 +78,12 @@ webpackIsomorphicTools.server(process.cwd(), () => {
     );
         app.use("/favicon.ico", (req, res) => {
             res.redirect(302, "/static/favicon.ico");
-        });
+    });
 
-    app.use("*", AuthRequired(["/"], "/"), (req, res) => {
+    app.use("/api", authApp);
+
+    app.use("/", AuthRequired(["/", "/login"], "/"), (req, res) => {
+        console.log(`render HTML for '${req.url}'`);
         if (debug) {
             webpackIsomorphicTools.refresh();
         }
@@ -88,6 +97,9 @@ webpackIsomorphicTools.server(process.cwd(), () => {
         const memoryHistory = createMemoryHistory(req.url);
         const store = configureStore(memoryHistory, {}, true);
         const history = syncHistoryWithStore(memoryHistory, store);
+        if (req.isAuthenticated()) {
+            store.dispatch(SetAuthorized());
+        }
         match({
             history,
             routes,
@@ -98,13 +110,14 @@ webpackIsomorphicTools.server(process.cwd(), () => {
             } else if (redirection) {
                 res.redirect(302, redirection.pathname + redirection.search);
             } else if (renderProp) {
+                const content = renderToString(
+                    React.createElement(RouterContext, renderProp as any)
+                );
+                store.dispatch(UnsetAuthorized());
                 res.status(200).send(
                     template({
                         title: "SAYO",
-                        content:
-                        renderToString(
-                            React.createElement(RouterContext, renderProp as any)
-                        ),
+                        content,
                         initialstate: JSON.stringify(store.getState()),
                         additionalHeader,
                         afterApp

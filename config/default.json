@@ -1,4 +1,5 @@
 {
+    "sessionSecret": "ssessssion",
     "server": {
         "db": "sqlite://db",
         "port": 3000,

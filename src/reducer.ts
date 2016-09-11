@@ -1,3 +1,12 @@
-import { combineReducers } from 'redux'
+/// <reference path="../typings/index.d.ts" />
 
-export const reducers = combineReducers({});
+import { combineReducers } from 'redux'
+import { reducer as auth, IState as IAuthState } from "./reducer/auth";
+
+export interface IState {
+    auth: IAuthState
+}
+
+export const reducers = combineReducers<IState>({
+    auth
+});
