@@ -23,6 +23,9 @@ export function InitPassportDB() {
 
 export function InitPassportGoogle(secretJsonPath: string, host: string) {
     fs.readFile(secretJsonPath, (err, content) => {
+        if (err !== null) {
+            console.error("Google API Secret load error - ", err);
+        }
         var credentials = JSON.parse(content.toString());
         var callback = <string>_.find(credentials.web.redirect_uris, (o)=> {
             return (<string>o).indexOf(host) != -1;
