@@ -33,7 +33,7 @@ export class Application extends React.Component<any, ApplicationState> {
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
-            <div>
+            <div className="container">
                 {this.props.children}
             </div>
         </div>
