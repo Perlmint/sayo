@@ -19,8 +19,10 @@
     "react": "registry:dt/react#0.14.0+20160423065914",
     "react-bootstrap": "registry:dt/react-bootstrap#0.0.0+20160526141239",
     "react-dom": "registry:dt/react-dom#0.14.0+20160412154040",
-    "react-router": "registry:dt/react-router#2.0.0+20160501155536",
+    "react-router": "registry:dt/react-router#2.0.0+20160828232736",
+    "react-router-redux": "registry:dt/react-router-redux#4.0.0+20160724070902",
     "react-router/history": "registry:dt/react-router/history#2.0.0+20160316155526",
+    "redux": "registry:dt/redux#3.5.2+20160703092728",
     "sequelize": "registry:dt/sequelize#3.4.1+20160423143634",
     "serve-static": "registry:dt/serve-static#0.0.0+20160501131543",
     "validator": "registry:dt/validator#4.5.1+20160316155526",
@@ -29,7 +31,6 @@
   "dependencies": {
     "body-parser": "registry:npm/body-parser#1.15.2+20160815132839",
     "react-redux": "registry:npm/react-redux#4.4.0+20160614222153",
-    "react-router-redux": "registry:npm/react-router-redux#4.0.0+20160602212457",
     "redux-thunk": "registry:npm/redux-thunk#2.0.0+20160525185520"
   }
 }
