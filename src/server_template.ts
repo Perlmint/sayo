@@ -14,11 +14,12 @@ export var template = function(){
     <meta name="apple-mobile-web-app-title" content="{{title}}">
     <meta name="mobile-web-app-capable" content="yes">
     <title>{{title}}</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <script type="text/javascript">window.__INITIAL_STATE__={{initialstate}};</script>
+    {{additionalHeader}}
   </head>
   <body>
     <div id="app">{{content}}</div>
-    <script type="text/javascript" src="/static/client.js"></script>
+    {{afterApp}}
   </body>
 </html>`
     return (opt: any) => {
