@@ -25,6 +25,7 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
+    "bootstrap-material-design": "^0.5.10",
     "config": "^1.21.0",
     "css-loader": "^0.25.0",
     "errorhandler": "^1.4.3",

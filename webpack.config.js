@@ -6,6 +6,7 @@ module.exports = {
   entry: [
     './src/client.ts',
     'bootstrap/dist/css/bootstrap.min.css',
+    'bootstrap-material-design/dist/css/bootstrap-material-design.min.css',
     './css/style.css'
   ],
   output: {
