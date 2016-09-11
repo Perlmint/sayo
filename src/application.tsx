@@ -1,7 +1,7 @@
 /// <reference path="../typings/index.d.ts" />
 
-import * as React from 'react';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import * as React from "react";
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
 import { RouteClick } from "./util";
 
 interface ApplicationState {

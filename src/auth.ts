@@ -4,7 +4,7 @@ import * as fs from 'fs';
 import * as passport from 'passport';
 import { OAuth2Strategy as GoogleStrategy } from 'passport-google-oauth';
 import * as _ from 'lodash';
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response, NextFunction } from "express";
 import { User } from "./model/db";
 import { UserInstance } from "./model/gen/user_models";
 
